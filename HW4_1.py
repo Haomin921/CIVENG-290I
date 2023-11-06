@@ -1,5 +1,4 @@
 import heapq
-import numpy as np
 from scipy.io import loadmat
 
 # Define the priority queue class using heapq
@@ -54,7 +53,7 @@ def myDijkstra(adj_matrix, origin):
     while not pq.is_empty():
         u = pq.extract_min()
         for v, weight in enumerate(adj_matrix[u]):
-            if weight > 0 and weight != np.inf:  # There is an edge
+            if weight > 0 and weight != "inf":  # There is an edge
                 alt = dist[u] + weight
                 if alt < dist[v]:
                     dist[v] = alt
