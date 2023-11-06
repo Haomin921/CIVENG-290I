@@ -62,26 +62,36 @@ def myDijkstra(adj_matrix, origin):
     
     return dist, prev
 
-# Load and process each graph
-num_graphs = 6
+import heapq
+import numpy as np
+from scipy.io import loadmat
 
-for graph_num in range(1, num_graphs + 1):
-    # Load the graph data from the MAT file
-    file_name = f'graph{graph_num}.mat'
-    mat_data = loadmat(file_name)
-    adj_matrix = mat_data[f'graph{graph_num}']
-    
-    # Convert MATLAB 1-indexing to Python 0-indexing
-    
-    origin = 0  # Specify the origin node (starting node)
-    
-    # Call Dijkstra's algorithm
-    dist, prev = myDijkstra(adj_matrix, origin)
-    prev=[i+1 for i in prev]
-    
-    # Display the results
-    print(f'Table {graph_num}: {file_name}')
-    print('dist prev')
-    for i, (d, p) in enumerate(zip(dist, prev)):
-        print(f'{d} {p}')
-    print()
+# Priority Queue class and Dijkstra's algorithm implementation remains the same
+
+def main():
+    num_graphs = 6
+
+    for graph_num in range(1, num_graphs + 1):
+        # Load the graph data from the MAT file
+        file_name = f'graph{graph_num}.mat'
+        mat_data = loadmat(file_name)
+        adj_matrix = mat_data[f'graph{graph_num}']
+        
+        # Convert MATLAB 1-indexing to Python 0-indexing
+        
+        origin = 0  # Specify the origin node (starting node)
+        
+        # Call Dijkstra's algorithm
+        dist, prev = myDijkstra(adj_matrix, origin)
+        prev = [i + 1 for i in prev]  # Convert to 1-indexed results
+        
+        # Display the results
+        print(f'Table {graph_num}: {file_name}')
+        print('dist prev')
+        for i, (d, p) in enumerate(zip(dist, prev)):
+            print(f'{d} {p}')
+        print()
+
+# Call the main function
+if __name__ == '__main__':
+    main()
