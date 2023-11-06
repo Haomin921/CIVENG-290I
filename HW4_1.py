@@ -42,18 +42,3 @@ def my_dijkstra(adj_matrix, origin):
 ...     prev[origin] = origin
 ...     
 ...     return dist, prev
-... 
-... # Example usage:
-... adj_matrix = [
-...     [0, 8, 0, 17, 0, 0, 0],
-...     [7, 0, 17, 0, 0, 0, 0],
-...     [0, 16, 0, 18, 11, 0, 0],
-...     [13, 13, 0, 0, 0, 20, 9],
-...     [0, 0, 2, 0, 0, 18, 0],
-...     [0, 0, 13, 0, 8, 0, 20],
-...     [0, 0, 0, 5, 0, 14, 0]
-... ]
-... origin = 0
-... dist, prev = my_dijkstra(adj_matrix, origin)
-... print("Distances:", dist)
-... print("Previous nodes:", prev)
