@@ -1,6 +1,5 @@
 from flask import Flask
 import scipy.io
-from myDijkstra import my_dijkstra
 import io
 
 import heapq
