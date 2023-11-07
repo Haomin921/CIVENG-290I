@@ -1,5 +1,11 @@
 import heapq
+import scipy.io
 from scipy.io import loadmat
+from flask import Flask
+from scipy.io import loadmat
+from io import StringIO
+
+app = Flask(__name__)
 
 # Define the priority queue class using heapq
 class PriorityQueue:
@@ -67,7 +73,7 @@ import numpy as np
 from scipy.io import loadmat
 
 # Priority Queue class and Dijkstra's algorithm implementation remains the same
-
+@app.route('/')
 def main():
     num_graphs = 6
 
@@ -85,13 +91,7 @@ def main():
         dist, prev = myDijkstra(adj_matrix, origin)
         prev = [i + 1 for i in prev]  # Convert to 1-indexed results
         
-        # Display the results
-        print(f'Table {graph_num}: {file_name}')
-        print('dist prev')
-        for i, (d, p) in enumerate(zip(dist, prev)):
-            print(f'{d} {p}')
-        print()
 
 # Call the main function
 if __name__ == '__main__':
-    main()
+     app.run(host='0.0.0.0', port=80)
