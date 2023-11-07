@@ -137,9 +137,5 @@ def run_script():
     return f"<pre>{result}</pre>"
 
 if __name__ == '__main__':
-    handler = logging.FileHandler('error.log')  # errors logged to this file
-    handler.setLevel(logging.ERROR)
-    app.logger.addHandler(handler)
-    app.debug = True  # Only for development!
     app.run(host='0.0.0.0', port=66)
 
